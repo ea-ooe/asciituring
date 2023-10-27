@@ -1,7 +1,7 @@
 ; Bin zu Hex Turing-Maschine
-; Geschrieben für den Turing-Maschinen-Simulator auf ***REMOVED***
+; Geschrieben für den Turing-Maschinen-Simulator auf https://morphett.info/turing/turing.html
 ; Erwartet binäre Eingabe rechts des Cursors, mit Leerzeichen in 4-bit-Abschnitte getrennt.
-; geschrieben von ea-ooe
+; Ein ***REMOVED***-Produkt
 
 0 * * r init
 
@@ -293,3 +293,61 @@ asciireadTWO2 2 _ r asciiwrite"
 asciireadTWO2 3 _ r asciiwrite#
 asciireadTWO2 4 _ r asciiwrite$
 asciireadTWO2 5 _ r asciiwrite%
+asciireadTWO2 6 _ r asciiwrite&
+asciireadTWO2 7 _ r asciiwrite'
+asciireadTWO2 8 _ r asciiwrite(
+asciireadTWO2 9 _ r asciiwrite)
+asciireadTWO2 A _ r asciiwritestar
+asciireadTWO2 B _ r asciiwrite+
+asciireadTWO2 C _ r asciiwrite,
+asciireadTWO2 D _ r asciiwrite-
+asciireadTWO2 E _ r asciiwrite.
+asciireadTWO2 F _ r asciiwrite/
+
+asciireadTWO3 0 _ r asciiwrite0
+asciireadTWO3 1 _ r asciiwrite1
+asciireadTWO3 2 _ r asciiwrite2
+asciireadTWO3 3 _ r asciiwrite3
+asciireadTWO3 4 _ r asciiwrite4
+asciireadTWO3 5 _ r asciiwrite5
+asciireadTWO3 6 _ r asciiwrite6
+asciireadTWO3 7 _ r asciiwrite7
+asciireadTWO3 8 _ r asciiwrite8
+asciireadTWO3 9 _ r asciiwrite9
+asciireadTWO3 A _ r asciiwrite:
+asciireadTWO3 B _ r asciiwritesemicolon
+asciireadTWO3 C _ r asciiwrite<
+asciireadTWO3 D _ r asciiwrite=
+asciireadTWO3 E _ r asciiwrite>
+asciireadTWO3 F _ r asciiwrite?
+
+asciireadTWO4 0 _ r asciiwrite@
+asciireadTWO4 1 _ r asciiwriteA
+asciireadTWO4 2 _ r asciiwriteB
+asciireadTWO4 3 _ r asciiwriteC
+asciireadTWO4 4 _ r asciiwriteD
+asciireadTWO4 5 _ r asciiwriteE
+asciireadTWO4 6 _ r asciiwriteF
+asciireadTWO4 7 _ r asciiwriteG
+asciireadTWO4 8 _ r asciiwriteH
+asciireadTWO4 9 _ r asciiwriteI
+asciireadTWO4 A _ r asciiwriteJ
+asciireadTWO4 B _ r asciiwriteK
+asciireadTWO4 C _ r asciiwriteL
+asciireadTWO4 D _ r asciiwriteM
+asciireadTWO4 E _ r asciiwriteN
+asciireadTWO4 F _ r asciiwriteO
+
+asciireadTWO5 0 _ r asciiwriteP
+asciireadTWO5 1 _ r asciiwriteQ
+asciireadTWO5 2 _ r asciiwriteR
+asciireadTWO5 3 _ r asciiwriteS
+asciireadTWO5 4 _ r asciiwriteT
+asciireadTWO5 5 _ r asciiwriteU
+asciireadTWO5 6 _ r asciiwriteV
+asciireadTWO5 7 _ r asciiwriteW
+asciireadTWO5 8 _ r asciiwriteX
+asciireadTWO5 9 _ r asciiwriteY
+asciireadTWO5 A _ r asciiwriteZ
+asciireadTWO5 B _ r asciiwrite[
+
