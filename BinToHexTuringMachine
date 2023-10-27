@@ -1,7 +1,7 @@
 ; Bin zu Hex Turing-Maschine
 ; Geschrieben für den Turing-Maschinen-Simulator auf https://morphett.info/turing/turing.html
 ; Erwartet binäre Eingabe rechts des Cursors, mit Leerzeichen in 4-bit-Abschnitte getrennt.
-; Ein ***REMOVED***-Produkt
+; geschrieben von ea-ooe
 
 0 * * r init
 
