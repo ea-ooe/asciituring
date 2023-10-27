@@ -595,4 +595,5 @@ asciiwrite~ _ ~ * asciiinit
 
 ; Bewegt den Cursor nach rechts und beendet.
 finish _ * * halt
+finish ß _ r finish
 finish * * r finish
