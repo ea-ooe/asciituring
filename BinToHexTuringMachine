@@ -350,4 +350,43 @@ asciireadTWO5 8 _ r asciiwriteX
 asciireadTWO5 9 _ r asciiwriteY
 asciireadTWO5 A _ r asciiwriteZ
 asciireadTWO5 B _ r asciiwrite[
+asciireadTWO5 C _ r asciiwrite\
+asciireadTWO5 D _ r asciiwrite]
+asciireadTWO5 E _ r asciiwrite^
+asciireadTWO5 F _ r asciiwriteunderscore
+
+asciireadTWO6 0 _ r asciiwrite`
+asciireadTWO6 1 _ r asciiwritea
+asciireadTWO6 2 _ r asciiwriteb
+asciireadTWO6 3 _ r asciiwritec
+asciireadTWO6 4 _ r asciiwrited
+asciireadTWO6 5 _ r asciiwritee
+asciireadTWO6 6 _ r asciiwritef
+asciireadTWO6 7 _ r asciiwriteg
+asciireadTWO6 8 _ r asciiwriteh
+asciireadTWO6 9 _ r asciiwritei
+asciireadTWO6 A _ r asciiwritej
+asciireadTWO6 B _ r asciiwritek
+asciireadTWO6 C _ r asciiwritel
+asciireadTWO6 D _ r asciiwritem
+asciireadTWO6 E _ r asciiwriten
+asciireadTWO6 F _ r asciiwriteo
+
+asciireadTWO7 0 _ r asciiwritep
+asciireadTWO7 1 _ r asciiwriteq
+asciireadTWO7 2 _ r asciiwriter
+asciireadTWO7 3 _ r asciiwrites
+asciireadTWO7 4 _ r asciiwritet
+asciireadTWO7 5 _ r asciiwriteu
+asciireadTWO7 6 _ r asciiwritev
+asciireadTWO7 7 _ r asciiwritew
+asciireadTWO7 8 _ r asciiwritex
+asciireadTWO7 9 _ r asciiwritey
+asciireadTWO7 A _ r asciiwritez
+asciireadTWO7 B _ r asciiwrite{
+asciireadTWO7 C _ r asciiwrite|
+asciireadTWO7 D _ r asciiwrite}
+asciireadTWO7 E _ r asciiwrite~
+
+
 
