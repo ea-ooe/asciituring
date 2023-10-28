@@ -16,3 +16,7 @@ This is a Turing machine that is capable of converting 4 bit binary numbers to h
 It is able to process input composed of just ones and zeroes, as well as input split into 8 bit groups. Unfortunately it is a lot slower when input is provided this way, because it will spend a lot of time converting the input into 4-bit groups, during which it will move the entire text one character at a time and as such it loses a lot of time moving the head back and forth.
 It can also skip the binary decoding process when given input already in hexadecimal format. It must begin with `0x` and mustn’t contain any spaces.
 I’ve written it to work with the following Turing machine simulator: https://morphett.info/turing/turing.html
+
+
+# TODO
+- [ ] Das ganze so umschreiben, dass bereits dekodiertes links des noch enkodiertem auf freigewordenem Platz geschrieben wird, um den Kopf nicht mehr so viel bewegen zu müssen
