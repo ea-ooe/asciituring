@@ -7,6 +7,7 @@
 
 ; Testen ob das Input schon gespalten ist, oder nicht
 4splitcheck _ * r 4splitcheckgo
+4splitcheck x * * assumehex
 4splitcheck * * r 4splitcheck
 
 4splitcheckgo _ * * 4splitinit
@@ -16,6 +17,22 @@
 4splitcheck3 * * r 4splitcheck4
 4splitcheck4 _ * l no4splitinit
 4splitcheck4 * * * 4splitinit
+
+assumehex x _ l ishex?
+
+ishex? 0 _ r ishex!
+ishex? * * * halt
+
+ishex! * * r capitalism
+
+capitalism a A r capitalism
+capitalism b B r capitalism
+capitalism c C r capitalism
+capitalism d D r capitalism
+capitalism e E r capitalism
+capitalism f F r capitalism
+capitalism _ ¶ l asciiinit
+capitalism * * r capitalism
 
 ; Zurück in die Startposition, wenn Input nicht gespalten werden muss.
 no4splitinit _ * l no4splitinit2
