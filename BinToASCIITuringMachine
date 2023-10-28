@@ -1,14 +1,142 @@
-; Bin zu Hex Turing-Maschine
+; Bin zu ASCII Turing-Maschine
 ; Geschrieben für den Turing-Maschinen-Simulator auf https://morphett.info/turing/turing.html
 ; Erwartet binäre Eingabe rechts des Cursors, mit Leerzeichen in 4-bit-Abschnitte getrennt.
 ; geschrieben von ea-ooe
 
-0 * * r init
+0 * * r 4splitcheck
+
+; Testen ob das Input schon gespalten ist, oder nicht
+4splitcheck _ * r 4splitcheckgo
+4splitcheck * * r 4splitcheck
+
+4splitcheckgo _ * * 4splitinit
+4splitcheckgo * * r 4splitcheck1
+4splitcheck1 * * r 4splitcheck2
+4splitcheck2 * * r 4splitcheck3
+4splitcheck3 * * r 4splitcheck4
+4splitcheck4 _ * l no4splitinit
+4splitcheck4 * * * 4splitinit
+
+; Zurück in die Startposition, wenn Input nicht gespalten werden muss.
+no4splitinit _ * l no4splitinit2
+no4splitinit * * l no4splitinit
+
+no4splitinit2 _ * r no4splitinit3
+no4splitinit2 * * l no4splitinit
+
+no4splitinit3 _ * r no4splitinit3
+no4splitinit3 * * * init
+
+
+; Rechtes Ende des Inputs suchen
+4splitinit _ * r 4splitinit2
+4splitinit 0 * r 4splitinit
+4splitinit 1 * r 4splitinit
+
+4splitinit2 _ / * 4splitsearchleft1
+4splitinit2 * * r 4splitinit
+
+4splitsearchleft1 * * l 4splitsearchleft21
+4splitsearchleft21 _ * l 4splitsearchleft31
+4splitsearchleft21 * * l 4splitsearchleft1
+4splitsearchleft31 _ * l 4splitsearchleft41
+4splitsearchleft31 * * l 4splitsearchleft1
+4splitsearchleft41 _ * l 4splitsearchright1
+4splitsearchleft41 * * l 4splitsearchleft1
+
+4splitsearchright1 _ * r 4splitsearchright1
+4splitsearchright1 0 _ r 4splitreturn01
+4splitsearchright1 1 _ r 4splitreturn11
+4splitsearchright1 / _ r init
+
+4splitreturn01 / * r 4splitwrite01
+4splitreturn01 * * r 4splitreturn01
+4splitreturn11 / * r 4splitwrite11
+4splitreturn11 * * r 4splitreturn11
+
+4splitwrite01 _ 0 l 4splitsearchleft2
+4splitwrite01 * * r 4splitwrite01
+4splitwrite11 _ 1 l 4splitsearchleft2
+4splitwrite11 * * r 4splitwrite11
+
+4splitsearchleft2 * * l 4splitsearchleft22
+4splitsearchleft22 _ * l 4splitsearchleft32
+4splitsearchleft22 * * l 4splitsearchleft2
+4splitsearchleft32 _ * l 4splitsearchleft42
+4splitsearchleft32 * * l 4splitsearchleft2
+4splitsearchleft42 _ * l 4splitsearchright2
+4splitsearchleft42 * * l 4splitsearchleft2
+
+4splitsearchright2 _ * r 4splitsearchright2
+4splitsearchright2 0 _ r 4splitreturn02
+4splitsearchright2 1 _ r 4splitreturn12
+4splitsearchright2 / _ r init
+
+4splitreturn02 / * r 4splitwrite02
+4splitreturn02 * * r 4splitreturn02
+4splitreturn12 / * r 4splitwrite12
+4splitreturn12 * * r 4splitreturn12
+
+4splitwrite02 _ 0 l 4splitsearchleft3
+4splitwrite02 * * r 4splitwrite02
+4splitwrite12 _ 1 l 4splitsearchleft3
+4splitwrite12 * * r 4splitwrite12
+
+
+4splitsearchleft3 * * l 4splitsearchleft23
+4splitsearchleft23 _ * l 4splitsearchleft33
+4splitsearchleft23 * * l 4splitsearchleft3
+4splitsearchleft33 _ * l 4splitsearchleft43
+4splitsearchleft33 * * l 4splitsearchleft3
+4splitsearchleft43 _ * l 4splitsearchright3
+4splitsearchleft43 * * l 4splitsearchleft3
+
+4splitsearchright3 _ * r 4splitsearchright3
+4splitsearchright3 0 _ r 4splitreturn03
+4splitsearchright3 1 _ r 4splitreturn13
+4splitsearchright3 / _ r init
+
+4splitreturn03 / * r 4splitwrite03
+4splitreturn03 * * r 4splitreturn03
+4splitreturn13 / * r 4splitwrite13
+4splitreturn13 * * r 4splitreturn13
+
+4splitwrite03 _ 0 l 4splitsearchleft4
+4splitwrite03 * * r 4splitwrite03
+4splitwrite13 _ 1 l 4splitsearchleft4
+4splitwrite13 * * r 4splitwrite13
+
+4splitsearchleft4 * * l 4splitsearchleft24
+4splitsearchleft24 _ * l 4splitsearchleft34
+4splitsearchleft24 * * l 4splitsearchleft4
+4splitsearchleft34 _ * l 4splitsearchleft44
+4splitsearchleft34 * * l 4splitsearchleft4
+4splitsearchleft44 _ * l 4splitsearchright4
+4splitsearchleft44 * * l 4splitsearchleft4
+
+4splitsearchright4 _ * r 4splitsearchright4
+4splitsearchright4 0 _ r 4splitreturn04
+4splitsearchright4 1 _ r 4splitreturn14
+4splitsearchright4 / _ r init
+
+4splitreturn04 / * r 4splitwrite04
+4splitreturn04 * * r 4splitreturn04
+4splitreturn14 / * r 4splitwrite14
+4splitreturn14 * * r 4splitreturn14
+
+4splitwrite04 _ 0 r 4splitsplit
+4splitwrite04 * * r 4splitwrite04
+4splitwrite14 _ 1 r 4splitsplit
+4splitwrite14 * * r 4splitwrite14
+
+4splitsplit * ! l 4splitsearchleft1
+
 
 ; Ich suche das rechte Ende des Inputs
 init 0 * r init
 init 1 * r init
 init _ * l go
+init ! * l go
 
 ; Ich stelle die Erste Binärziffer fest, und setze dementsprechend fort, bis ich in einem 4-stelligen Zustand bin
 go 0 * l zero
@@ -60,66 +188,82 @@ zero 1 * l 10
 0000 0 * r 0000
 0000 1 * r 0000
 0000 _ O r again
+0000 ! O r again
 
 0001 0 * r 0001
 0001 1 * r 0001
 0001 _ I r again
+0001 ! I r again
 
 0010 0 * r 0010
 0010 1 * r 0010
 0010 _ 2 r again
+0010 ! 2 r again
 
 0011 0 * r 0011
 0011 1 * r 0011
 0011 _ 3 r again
+0011 ! 3 r again
 
 0100 0 * r 0100
 0100 1 * r 0100
 0100 _ 4 r again
+0100 ! 4 r again
 
 0101 0 * r 0101
 0101 1 * r 0101
 0101 _ 5 r again 
+0101 ! 5 r again 
 
 0110 0 * r 0110
 0110 1 * r 0110
 0110 _ 6 r again 
+0110 ! 6 r again 
 
 0111 0 * r 0111
 0111 1 * r 0111
 0111 _ 7 r again
+0111 ! 7 r again
 
 1000 0 * r 1000
 1000 1 * r 1000
 1000 _ 8 r again
+1000 ! 8 r again
 
 1001 0 * r 1001
 1001 1 * r 1001
 1001 _ 9 r again
+1001 ! 9 r again
 
 1010 0 * r 1010
 1010 1 * r 1010
 1010 _ A r again
+1010 ! A r again
 
 1011 0 * r 1011
 1011 1 * r 1011
 1011 _ B r again
+1011 ! B r again
 
 1100 0 * r 1100
 1100 1 * r 1100
 1100 _ C r again
+1100 ! C r again
 
 1101 0 * r 1101
 1101 1 * r 1101
 1101 _ D r again
+1101 ! D r again
 
 1110 0 * r 1110
 1110 1 * r 1110
 1110 _ E r again
+1110 ! E r again
 
 1111 0 * r 1111
 1111 1 * r 1111
 1111 _ F r again
+1111 ! F r again
 
 ; Wenn wir mehr Input finden, bearbeiten wir es erneut, wie von vorne. Wenn nicht, bereiten den Putzprozess vor, der Nullen und Einsen durch Leerzeichen ersetzt.
 again _ * l cleaninit
