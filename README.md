@@ -19,4 +19,4 @@ I’ve written it to work with the following Turing machine simulator: https://m
 
 
 # TODO
-- [ ] Das ganze so umschreiben, dass bereits dekodiertes links des noch enkodiertem auf freigewordenem Platz geschrieben wird, um den Kopf nicht mehr so viel bewegen zu müssen
+- [ ] Das ganze so umschreiben, dass bereits dekodiertes links des noch enkodierten auf freigewordenem Platz geschrieben wird, um den Kopf nicht mehr so viel bewegen zu müssen
