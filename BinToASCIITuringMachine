@@ -309,125 +309,132 @@ tidyinit23 _ * l tidyinit24
 
 tidyinit24 _ * l tidyinit25
 
-tidyinit25 _ * r tidysearch
+tidyinit25 _ 0 r tidywritex
 tidyinit25 * * l tidyinit2
+
+tidywritex * x r tidysearch
 
 ; Wir suchen uns ein Zeichen, das wir hinter das (/) verschieben möchten.
 tidysearch _ * r tidysearch
-tidysearch O _ r tidyreturn0
-tidysearch I _ r tidyreturn1
-tidysearch 2 _ r tidyreturn2
-tidysearch 3 _ r tidyreturn3
-tidysearch 4 _ r tidyreturn4
-tidysearch 5 _ r tidyreturn5
-tidysearch 6 _ r tidyreturn6
-tidysearch 7 _ r tidyreturn7
-tidysearch 8 _ r tidyreturn8
-tidysearch 9 _ r tidyreturn9
-tidysearch A _ r tidyreturnA
-tidysearch B _ r tidyreturnB
-tidysearch C _ r tidyreturnC
-tidysearch D _ r tidyreturnD
-tidysearch E _ r tidyreturnE
-tidysearch F _ r tidyreturnF
-tidysearch / _ r goright
+tidysearch O _ l tidyreturn0
+tidysearch I _ l tidyreturn1
+tidysearch 2 _ l tidyreturn2
+tidysearch 3 _ l tidyreturn3
+tidysearch 4 _ l tidyreturn4
+tidysearch 5 _ l tidyreturn5
+tidysearch 6 _ l tidyreturn6
+tidysearch 7 _ l tidyreturn7
+tidysearch 8 _ l tidyreturn8
+tidysearch 9 _ l tidyreturn9
+tidysearch A _ l tidyreturnA
+tidysearch B _ l tidyreturnB
+tidysearch C _ l tidyreturnC
+tidysearch D _ l tidyreturnD
+tidysearch E _ l tidyreturnE
+tidysearch F _ l tidyreturnF
+tidysearch / _ * tidyfinish
+
+tidyfinish / _ l tidyfinish
+tidyfinish _ * l tidyfinish
+tidyfinish x * * assumehex
+tidyfinish * * l tidyfinish
 
 ; Wir suchen den (/) um erst dahinter unser Zeichen zu platzieren.
-tidyreturn0 / * r tidyput0
-tidyreturn0 * * r tidyreturn0
+tidyreturn0 _ * l tidyreturn0
+tidyreturn0 * * r tidyput0
 
-tidyreturn1 / * r tidyput1
-tidyreturn1 * * r tidyreturn1
+tidyreturn1 _ * l tidyreturn1
+tidyreturn1 * * r tidyput1
 
-tidyreturn2 / * r tidyput2
-tidyreturn2 * * r tidyreturn2
+tidyreturn2 _ * l tidyreturn2
+tidyreturn2 * * r tidyput2
 
-tidyreturn3 / * r tidyput3
-tidyreturn3 * * r tidyreturn3
+tidyreturn3 _ * l tidyreturn3
+tidyreturn3 * * r tidyput3
 
-tidyreturn4 / * r tidyput4
-tidyreturn4 * * r tidyreturn4
+tidyreturn4 _ * l tidyreturn4
+tidyreturn4 * * r tidyput4
 
-tidyreturn5 / * r tidyput5
-tidyreturn5 * * r tidyreturn5
+tidyreturn5 _ * l tidyreturn5
+tidyreturn5 * * r tidyput5
 
-tidyreturn6 / * r tidyput6
-tidyreturn6 * * r tidyreturn6
+tidyreturn6 _ * l tidyreturn6
+tidyreturn6 * * r tidyput6
 
-tidyreturn7 / * r tidyput7
-tidyreturn7 * * r tidyreturn7
+tidyreturn7 _ * l tidyreturn7
+tidyreturn7 * * r tidyput7
 
-tidyreturn8 / * r tidyput8
-tidyreturn8 * * r tidyreturn8
+tidyreturn8 _ * l tidyreturn8
+tidyreturn8 * * r tidyput8
 
-tidyreturn9 / * r tidyput9
-tidyreturn9 * * r tidyreturn9
+tidyreturn9 _ * l tidyreturn9
+tidyreturn9 * * r tidyput9
 
-tidyreturnA / * r tidyputA
-tidyreturnA * * r tidyreturnA
+tidyreturnA _ * l tidyreturnA
+tidyreturnA * * r tidyputA
 
-tidyreturnB / * r tidyputB
-tidyreturnB * * r tidyreturnB
+tidyreturnB _ * l tidyreturnB
+tidyreturnB * * r tidyputB
 
-tidyreturnC / * r tidyputC
-tidyreturnC * * r tidyreturnC
+tidyreturnC _ * l tidyreturnC
+tidyreturnC * * r tidyputC
 
-tidyreturnD / * r tidyputD
-tidyreturnD * * r tidyreturnD
+tidyreturnD _ * l tidyreturnD
+tidyreturnD * * r tidyputD
 
-tidyreturnE / * r tidyputE
-tidyreturnE * * r tidyreturnE
+tidyreturnE _ * l tidyreturnE
+tidyreturnE * * r tidyputE
 
-tidyreturnF / * r tidyputF
-tidyreturnF * * r tidyreturnF
+tidyreturnF _ * l tidyreturnF
+tidyreturnF * * r tidyputF
 
 ; Wir suchen das Ende des bisherigen Outputs und platzieren dort unser Zeichen. Anschließend suchen wir das nächste.
-tidyput0 _ 0 l tidysearchagain
+tidyput0 _ 0 r tidysearch
 tidyput0 * * r tidyput0
 
-tidyput1 _ 1 l tidysearchagain
+tidyput1 _ 1 r tidysearch
 tidyput1 * * r tidyput1
 
-tidyput2 _ 2 l tidysearchagain
+tidyput2 _ 2 r tidysearch
 tidyput2 * * r tidyput2
 
-tidyput3 _ 3 l tidysearchagain
+tidyput3 _ 3 r tidysearch
 tidyput3 * * r tidyput3
 
-tidyput4 _ 4 l tidysearchagain
+tidyput4 _ 4 r tidysearch
 tidyput4 * * r tidyput4
 
-tidyput5 _ 5 l tidysearchagain
+tidyput5 _ 5 r tidysearch
 tidyput5 * * r tidyput5
 
-tidyput6 _ 6 l tidysearchagain
+tidyput6 _ 6 r tidysearch
 tidyput6 * * r tidyput6
 
-tidyput7 _ 7 l tidysearchagain
+tidyput7 _ 7 r tidysearch
 tidyput7 * * r tidyput7
 
-tidyput8 _ 8 l tidysearchagain
+tidyput8 _ 8 r tidysearch
 tidyput8 * * r tidyput8
 
-tidyput9 _ 9 l tidysearchagain
+tidyput9 _ 9 r tidysearch
 tidyput9 * * r tidyput9
 
-tidyputA _ A l tidysearchagain
+tidyputA _ A r tidysearch
 tidyputA * * r tidyputA
 
-tidyputB _ B l tidysearchagain
+tidyputB _ B r tidysearch
 tidyputB * * r tidyputB
 
-tidyputC _ C l tidysearchagain
+tidyputC _ C r tidysearch
 tidyputC * * r tidyputC
 
-tidyputD _ D l tidysearchagain
+tidyputD _ D r tidysearch
 tidyputD * * r tidyputD
 
-tidyputE _ E l tidysearchagain
+tidyputE _ E r tidysearch
 tidyputE * * r tidyputE
 
-tidyputF _ F l tidysearchagain
+tidyputF _ F r tidysearch
 tidyputF * * r tidyputF
 
 ; Wir beginnen unsere Suche nach dem neuen linken Ende des Outputs, um dort unser nächstes Zeichen zu finden.
